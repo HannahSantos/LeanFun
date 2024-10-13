@@ -29,3 +29,11 @@ by
   induction k with
   | O => rw [add, add]
   | S k HI => rw [add, add, add, HI]
+
+theorem Add_Com :
+  ∀ (n m : myNat), n + m = m + n :=
+by
+  intro n m
+  induction m with
+  | O => rw [add, Add_zero_L]
+  | S k HI => rw [add, HI, Add_succ_L]
