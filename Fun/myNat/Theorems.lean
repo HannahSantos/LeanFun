@@ -73,3 +73,9 @@ by
   induction m with
   | O => rw [mul, Mul_zero_L]
   | S k HI => rw [mul, HI, Mul_succ_L]
+
+theorem Mul_Id_L :
+  ∀ (n : myNat), (S O) * n = n :=
+by
+  intro n
+  rw [Mul_Com, Mul_Id_R]
