@@ -21,3 +21,11 @@ by
   induction m with
   | O => rw [add, add]
   | S k HI => rw [add, add, HI]
+
+theorem Add_Ass :
+  ∀ (n m k : myNat), n + m + k = n + (m + k) :=
+by
+  intro n m k
+  induction k with
+  | O => rw [add, add]
+  | S k HI => rw [add, add, add, HI]
