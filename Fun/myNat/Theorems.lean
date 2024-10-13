@@ -90,3 +90,9 @@ by
                   Mul_succ_L, Add_Ass (k * n) n (k * m + m),
                   Add_Com (k * m) m, ← Add_Ass n m (k * m),
                   Add_Com (n + m) (k * m), Add_Ass]
+
+theorem Distr_R :
+  ∀ (n m k : myNat), (n + m) * k = (n * k) + (m * k) :=
+by
+  intro n m k
+  rw [Mul_Com, Mul_Com n k, Mul_Com m k, Distr_L]
