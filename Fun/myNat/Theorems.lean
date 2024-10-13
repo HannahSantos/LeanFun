@@ -79,3 +79,14 @@ theorem Mul_Id_L :
 by
   intro n
   rw [Mul_Com, Mul_Id_R]
+
+theorem Distr_L :
+  ∀ (k n m : myNat), k * (n + m) = (k * n) + (k * m) :=
+by
+  intro k n m
+  induction k with
+  | O => rw [Mul_zero_L, Mul_zero_L, Mul_zero_L, add]
+  | S k HI => rw [Mul_succ_L, HI, Mul_succ_L,
+                  Mul_succ_L, Add_Ass (k * n) n (k * m + m),
+                  Add_Com (k * m) m, ← Add_Ass n m (k * m),
+                  Add_Com (n + m) (k * m), Add_Ass]
