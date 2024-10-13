@@ -114,3 +114,11 @@ theorem Pow_Id_R :
 by
   intro n
   rw [pow, pow, Mul_Id_L]
+
+theorem Pow_Add_eq_Mul_Pow :
+  ∀ (n m k : myNat), n ^ (m + k) = (n ^ m) * (n ^ k) :=
+by
+  intro n m k
+  induction k with
+  | O => rw [add, pow, Mul_Id_R]
+  | S k HI => rw [add, pow, HI, pow, Mul_Ass]
