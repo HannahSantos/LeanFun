@@ -104,3 +104,13 @@ by
   induction k with
   | O => rw [mul, mul, mul]
   | S k HI => rw [mul, HI, mul, Distr_L]
+
+----------------------------------------------------------
+-- Exponenciação:
+----------------------------------------------------------
+
+theorem Pow_Id_R :
+  ∀ (n : myNat), n ^ (S O) = n :=
+by
+  intro n
+  rw [pow, pow, Mul_Id_L]
