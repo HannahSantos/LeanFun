@@ -122,3 +122,11 @@ by
   induction k with
   | O => rw [add, pow, Mul_Id_R]
   | S k HI => rw [add, pow, HI, pow, Mul_Ass]
+
+theorem Pow_Pow_eq_Pow_Mul :
+  ∀ (n m k : myNat), (n ^ m) ^ k = n ^  (m * k) :=
+by
+  intro n m k
+  induction k with
+  | O => rw [mul, pow, pow]
+  | S k HI => rw [pow, HI, mul, Pow_Add_eq_Mul_Pow]
