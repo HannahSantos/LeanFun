@@ -12,3 +12,8 @@ def mul : myNat → myNat → myNat
   | _, .O => .O
   | n, .S m => (mul n m) + n
 infixl:65 " * " => mul
+
+def pow : myNat → myNat → myNat
+  | _, .O => .S .O
+  | n, .S m => (pow n m) * n
+infixr:65 " ^ " => pow
