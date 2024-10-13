@@ -37,3 +37,13 @@ by
   induction m with
   | O => rw [add, Add_zero_L]
   | S k HI => rw [add, HI, Add_succ_L]
+
+----------------------------------------------------------
+-- Produto:
+----------------------------------------------------------
+
+theorem Mul_Id_R :
+  ∀ (n : myNat), n * (S O) = n :=
+by
+  intro n
+  rw [mul, mul, Add_zero_L]
