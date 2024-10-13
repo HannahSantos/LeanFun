@@ -47,3 +47,11 @@ theorem Mul_Id_R :
 by
   intro n
   rw [mul, mul, Add_zero_L]
+
+theorem Mul_zero_L :
+  ∀ (n : myNat), O * n = O :=
+by
+  intro n
+  induction n with
+  | O => rw [mul]
+  | S k HI => rw [mul, HI, add]
