@@ -96,3 +96,11 @@ theorem Distr_R :
 by
   intro n m k
   rw [Mul_Com, Mul_Com n k, Mul_Com m k, Distr_L]
+
+theorem Mul_Ass :
+  ∀ (n m k : myNat), (n * m) * k = n * (m * k) :=
+by
+  intro n m k
+  induction k with
+  | O => rw [mul, mul, mul]
+  | S k HI => rw [mul, HI, mul, Distr_L]
