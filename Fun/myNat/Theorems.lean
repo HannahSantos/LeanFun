@@ -65,3 +65,11 @@ by
   | S k HI => rw [mul, HI, mul, add,
                   add, Add_Ass, Add_Com k n,
                   ← Add_Ass]
+
+theorem Mul_Com :
+  ∀ (n m : myNat), n * m = m * n :=
+by
+  intro n m
+  induction m with
+  | O => rw [mul, Mul_zero_L]
+  | S k HI => rw [mul, HI, Mul_succ_L]
