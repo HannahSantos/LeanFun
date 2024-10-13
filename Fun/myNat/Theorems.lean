@@ -55,3 +55,13 @@ by
   induction n with
   | O => rw [mul]
   | S k HI => rw [mul, HI, add]
+
+theorem Mul_succ_L :
+  ∀ (n m : myNat), (S n) * m = (n * m) + m :=
+by
+  intro n m
+  induction m with
+  | O => rw [mul, mul, add]
+  | S k HI => rw [mul, HI, mul, add,
+                  add, Add_Ass, Add_Com k n,
+                  ← Add_Ass]
